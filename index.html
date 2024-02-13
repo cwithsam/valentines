@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+            font-family: 'Courier';
+            background-color: #5bb6eb;
+            color: rgb(247, 128, 128);
+
+        }
+
+        #valentineQuestion {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            /* Set the transition properties */
+            font-size: 40px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+            color: #e67373;
+        }
+
+        #baby {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            /* Set the transition properties */
+            font-size: 50px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+            color: #e67373;
+        }
+
+        #answers{
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            /* Set the transition properties */
+        }
+        .answerButton {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+            font-family: 'courier';
+            margin-bottom: 20px;
+            background-color: #FFE3E1;
+            color: #e67373;
+            border-radius: 12px;
+            border: 2px solid #FFE3E1;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="baby"><b>My dearest Baby En,</b></div>
+    <div id="valentineQuestion"><b>Will you be my valentine?</b></div>
+    <div id="answers">
+        <button class="answerButton" onclick="location.href='thankyou.html'">Yes, 好 😍💕</button>
+        <button class="answerButton" id="noButton">No, 不要 😢💔</button>
+        <br>
+        <img src='please-peach.gif' alt='cat asking question' class="responsive">
+    </div>
+
+
+    <script>
+        document.getElementById('noButton').addEventListener('click', function () {
+            var yesButton = document.querySelector('button[onclick*="thankyou.html"]');
+            var noButton = document.getElementById('noButton');
+            var currentFontSizeYes = parseInt(window.getComputedStyle(yesButton).fontSize);
+            var currentFontSizeNo = parseInt(window.getComputedStyle(noButton).fontSize);
+
+            yesButton.style.fontSize = (currentFontSizeYes + 10) + 'px'; // Increase font size by 10px for the "Yes" button
+            noButton.style.fontSize = (currentFontSizeNo - 1) + 'px'; // Decrease font size by 5px for the "No" button
+        });
+
+        function showDiv(divId, delay) {
+            var hiddenDiv = document.getElementById(divId);
+            setTimeout(function () {
+                hiddenDiv.style.opacity = '1';
+            }, delay);
+        }
+
+        // Call showDiv with different parameters for each div
+        showDiv('baby', 500); // 3 seconds delay
+        showDiv('valentineQuestion', 2000); // 3 seconds delay
+        showDiv('answers', 4000); // 5 seconds delay
+    </script>
+</body>
+
+</html>
